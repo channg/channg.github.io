@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Magnetic - Stunning Responsive HTML5/CSS3 Photography Wensite Template</title>
+	<title>薛智文的主页</title>
 	<meta charset="utf-8">
 	<meta name="author" content="pixelhint.com">
 	<meta name="description" content="Magnetic is a stunning responsive HTML5/CSS3 photography/portfolio website template"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/new.css">
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
+    <!-- Place this tag in your head or just before your close body tag. -->
+	<script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
 <body>
 
 	<header>
 		<div class="logo">
-			<a href="index.html"><img src="img/logo.png" title="Magnetic" alt="Magnetic"/></a>
+			<img  src="img/zhiwenxue.png" width="185px">
 		</div><!-- end logo -->
-
+		<div class="head_img" onclick="location.href='https://github.com/zhiwenxue'"><img src="https://avatars3.githubusercontent.com/u/16931846?v=3&s=460" width="100%" height="100%"/></div>
 		<div id="menu_icon"></div>
 		<nav>
 			<ul>
@@ -30,208 +33,198 @@
 		</nav><!-- end navigation menu -->
 
 		<div class="footer clearfix">
-			<ul class="social clearfix">
-				<li><a href="#" class="fb" data-title="Facebook"></a></li>
-				<li><a href="#" class="google" data-title="Google +"></a></li>
-				<li><a href="#" class="behance" data-title="Behance"></a></li>
-				<!--<li><a href="#" class="twitter" data-title="Twitter"></a></li>
-				<li><a href="#" class="dribble" data-title="Dribble"></a></li>-->
-				<li><a href="#" class="rss" data-title="RSS"></a></li>
-			</ul><!-- end social -->
-
 			<div class="rights">
-				<p>Copyright © 2014 magnetic.</p>
-				<p>Template by <a href="">Pixelhint.com</a></p>
+				<!-- Place this tag where you want the button to render. -->
+				<a class="github-button" href="https://github.com/zhiwenxue" data-style="mega" data-count-href="/zhiwenxue/followers" data-count-api="/users/zhiwenxue#followers" data-count-aria-label="# followers on GitHub" aria-label="Follow @zhiwenxue on GitHub">Follow @zhiwenxue</a>
 			</div><!-- end rights -->
 		</div ><!-- end footer -->
 	</header><!-- end header -->
 
 	<section class="main clearfix">
+		<!--jquery  -->
 		<div class="work">
 			<a href="inner.html">
-				<img src="img/work1.jpg" class="media" alt=""/>
+				<div class="fill_div">
+					<div class="inner_img_div" style="background-color: #0768AD">
+						<img class="home_img" src="img/homeimg/jquery-selectors.jpg" style="height: 50%;margin-top: 25%">
+					</div>
+				</div>
 				<div class="caption">
 					<div class="work_title">
-						<h1>culpa qui officia deserunt mollit</h1>
+						<h1>
+							<p>jQuery 是一个 JavaScript 库。</p>
+							<p>jQuery 极大地简化了 JavaScript 编程。</p>
+							<p>jQuery 很容易学习。</p>
+						</h1>
 					</div>
 				</div>
 			</a>
 		</div>
+		<!-- bootstrap -->
+		<div class="work">
+			<a href="inner.html">
+				<div class="fill_div">
+					<div class="inner_img_div" style="background-color: #453166">
+						<img class="home_img" src="img/homeimg/bootstrap.png" style="height: 50%;margin-top: 25%">
+					</div>
+				</div>
+				<div class="caption">
+					<div class="work_title">
+						<h1>Bootstrap，来自 Twitter，是目前最受欢迎的前端框架。Bootstrap 是基于 HTML、CSS、JAVASCRIPT 的，它简洁灵活，使得 Web 开发更加快捷。</h1>
+					</div>
+				</div>
+			</a>
+		</div>
+		<!-- anjularjs -->
+		<div class="work">
+			<a href="inner.html">
+				<div class="fill_div">
+					<div class="inner_img_div" style="background-color: #E1E1E1">
+						<img class="home_img" src="img/homeimg/angularjs.png" style="height: 50%;margin-top: 25%">
+					</div>
+				</div>
+				<div class="caption">
+					<div class="work_title">
+						<h1>AngularJS 通过新的属性和表达式扩展了 HTML。
+AngularJS 可以构建一个单一页面应用程序（SPAs：Single Page Applications）。
+AngularJS 学习起来非常简单。</h1>
+					</div>
+				</div>
+			</a>
+		</div>
+		<!-- vuejs -->
+		<div class="work">
+			<a href="inner.html">
+				<div class="fill_div">
+					<div class="inner_img_div" style="background-color:#ffffff">
+						<img class="home_img" src="img/homeimg/vuejs.png" style="height: 50%;margin-top: 25%">
+					</div>
+				</div>
+				<div class="caption">
+					<div class="work_title">
+						<h1>Vue.js 是一个轻巧、高性能、可组件化的MVVM库，同时拥有非常容易上手的API，让编写动态的UI界面变得轻松简单。</h1>
+					</div>
+				</div>
+			</a>
+		</div>
+		
+		<div class="work">
+			<a href="inner.html">
+				<div class="fill_div">
+					<div class="inner_img_div" style="background-color:#ffffff">
+						<img class="home_img" src="img/homeimg/zepto.png" style="margin-top: 30%">
+					</div>
+				</div>
+				<div class="caption">
+					<div class="work_title">
+						<h1>Zepto是一个轻量级的针对现代高级浏览器的JavaScript库， 它与jquery有着类似的api。 如果你会用jquery，那么你也会用zepto。</h1>
+					</div>
+				</div>
+			</a>
+		</div>
+		<div class="work">
+			<a href="inner.html">
+				<div class="fill_div">
+					<div class="inner_img_div" style="background-color:#267FE4">
+						<img class="home_img" src="img/homeimg/swiper.png" style="height: 50%;margin-top: 25%">
+					</div>
+				</div>
+				<div class="caption">
+					<div class="work_title">
+						<h1>Swiper是纯javascript打造的滑动特效插件，面向手机、平板电脑等移动终端。
 
-		<div class="work">
-			<a href="inner.html">
-				<img src="img/work2.jpg" class="media" alt=""/>
-				<div class="caption">
-					<div class="work_title">
-						<h1>culpa qui officia deserunt mollit</h1>
+Swiper能实现触屏焦点图、触屏Tab切换、触屏多图切换等常用效果。</h1>
 					</div>
 				</div>
 			</a>
 		</div>
+		<div class="work">
+			<a href="inner.html">
+				<div class="fill_div">
+					<div class="inner_img_div" style="background-color:#ffffff">
+						<img class="home_img" src="img/homeimg/echarts.png" style="">
+					</div>
+				</div>
+				<div class="caption">
+					<div class="work_title">
+						<h1>　ECharts，缩写来自Enterprise Charts，商业级数据图表  来自baidu</h1>
+					</div>
+				</div>
+			</a>
+		</div>
+		<div class="work">
+			<a href="inner.html">
+				<div class="fill_div">
+					<div class="inner_img_div" style="background-color:#59BDCE">
+						<img class="home_img" src="img/homeimg/three.png" style="margin-top: 20%">
+					</div>
+				</div>
+				<div class="caption">
+					<div class="work_title">
+						<h1>three.js是JavaScript编写的WebGL第三方库。提供了非常多的3D显示功能。</h1>
+					</div>
+				</div>
+			</a>
+		</div>	
+		<div class="work">
+			<a href="inner.html">
+				<div class="fill_div">
+					<div class="inner_img_div" style="background-color:#524743">
+						<img class="home_img" src="img/homeimg/coffee.jpg" style="margin-top: 25%;height: 50%">
+					</div>
+				</div>
+				<div class="caption">
+					<div class="work_title">
+						<h1>CoffeeScript 是一门编译到 JavaScript 的小巧语言. 在 Java 般笨拙的外表下, JavaScript 其实有着一颗华丽的心脏. CoffeeScript 尝试用简洁的方式展示 JavaScript 优秀的部分.</h1>
+					</div>
+				</div>
+			</a>
+		</div>
+		<div class="work">
+			<a href="inner.html">
+				<div class="fill_div">
+					<div class="inner_img_div" style="background-color:#1D365E">
+						<img class="home_img" src="img/homeimg/less.jpg" style="margin-top: 35%;">
+					</div>
+				</div>
+				<div class="caption">
+					<div class="work_title">
+						<h1>Less 是一门 CSS 预处理语言，它扩展了 CSS 语言，增加了变量、Mixin、函数等特性，使 CSS 更易维护和扩展。
 
-		<div class="work">
-			<a href="inner.html">
-				<img src="img/work3.jpg" class="media" alt=""/>
-				<div class="caption">
-					<div class="work_title">
-						<h1>culpa qui officia deserunt mollit</h1>
+Less 可以运行在 Node 或浏览器端。</h1>
 					</div>
 				</div>
 			</a>
-		</div>
-
+		</div>				
 		<div class="work">
 			<a href="inner.html">
-				<img src="img/work4.jpg" class="media" alt=""/>
-				<div class="caption">
-					<div class="work_title">
-						<h1>culpa qui officia deserunt mollit</h1>
+				<div class="fill_div">
+					<div class="inner_img_div" style="background-color:#EFEFF1">
+						<img class="home_img" src="img/homeimg/typescript-cover-image.jpg" style="margin-top: 35%;">
 					</div>
 				</div>
-			</a>
-		</div>
-
-		<div class="work">
-			<a href="inner.html">
-				<img src="img/work5.jpg" class="media" alt=""/>
 				<div class="caption">
 					<div class="work_title">
-						<h1>culpa qui officia deserunt mollit</h1>
-					</div>
-				</div>
-			</a>
-		</div>
-
-		<div class="work">
-			<a href="inner.html">
-				<img src="img/work6.jpg" class="media" alt=""/>
-				<div class="caption">
-					<div class="work_title">
-						<h1>culpa qui officia deserunt mollit</h1>
-					</div>
-				</div>
-			</a>
-		</div>
-
-		<div class="work">
-			<a href="inner.html">
-				<img src="img/work2.jpg" class="media" alt=""/>
-				<div class="caption">
-					<div class="work_title">
-						<h1>culpa qui officia deserunt mollit</h1>
-					</div>
-				</div>
-			</a>
-		</div>
-
-		<div class="work">
-			<a href="inner.html">
-				<img src="img/work3.jpg" class="media" alt=""/>
-				<div class="caption">
-					<div class="work_title">
-						<h1>culpa qui officia deserunt mollit</h1>
-					</div>
-				</div>
-			</a>
-		</div>
-
-		<div class="work">
-			<a href="inner.html">
-				<img src="img/work1.jpg" class="media" alt=""/>
-				<div class="caption">
-					<div class="work_title">
-						<h1>culpa qui officia deserunt mollit</h1>
+						<h1>TypeScript是一种由微软开发的自由和开源的编程语言。它是JavaScript的一个超集，而且本质上向这个语言添加了可选的静态类型和基于类的面向对象编程。</h1>
 					</div>
 				</div>
 			</a>
 		</div>
 		<div class="work">
 			<a href="inner.html">
-				<img src="img/work4.jpg" class="media" alt=""/>
+				<div class="fill_div">
+					<div class="inner_img_div" style="background-color:#ffffff">
+						<img class="home_img" src="img/homeimg/marinamilette_sass.png" style="">
+					</div>
+				</div>
 				<div class="caption">
 					<div class="work_title">
-						<h1>culpa qui officia deserunt mollit</h1>
+						<h1>Sass 扩展了 CSS3，增加了规则、变量、混入、选择器、继承等等特性。Sass 生成良好格式化的 CSS 代码，易于组织和维护。SASS是对CSS3（层叠样式表）的语法的一种扩充，它可以使用巢状、混入、选择子继承等功能，可以更有效有弹性的写出Stylesheet。</h1>
 					</div>
 				</div>
 			</a>
-		</div>
-
-		<div class="work">
-			<a href="inner.html">
-				<img src="img/work5.jpg" class="media" alt=""/>
-				<div class="caption">
-					<div class="work_title">
-						<h1>culpa qui officia deserunt mollit</h1>
-					</div>
-				</div>
-			</a>
-		</div>
-
-		<div class="work">
-			<a href="inner.html">
-				<img src="img/work6.jpg" class="media" alt=""/>
-				<div class="caption">
-					<div class="work_title">
-						<h1>culpa qui officia deserunt mollit</h1>
-					</div>
-				</div>
-			</a>
-		</div>
-
-		<div class="work">
-			<a href="inner.html">
-				<img src="img/work2.jpg" class="media" alt=""/>
-				<div class="caption">
-					<div class="work_title">
-						<h1>culpa qui officia deserunt mollit</h1>
-					</div>
-				</div>
-			</a>
-		</div>
-		<div class="work">
-			<a href="inner.html">
-				<img src="img/work4.jpg" class="media" alt=""/>
-				<div class="caption">
-					<div class="work_title">
-						<h1>culpa qui officia deserunt mollit</h1>
-					</div>
-				</div>
-			</a>
-		</div>
-
-		<div class="work">
-			<a href="inner.html">
-				<img src="img/work5.jpg" class="media" alt=""/>
-				<div class="caption">
-					<div class="work_title">
-						<h1>culpa qui officia deserunt mollit</h1>
-					</div>
-				</div>
-			</a>
-		</div>
-
-		<div class="work">
-			<a href="inner.html">
-				<img src="img/work6.jpg" class="media" alt=""/>
-				<div class="caption">
-					<div class="work_title">
-						<h1>culpa qui officia deserunt mollit</h1>
-					</div>
-				</div>
-			</a>
-		</div>
-
-		<div class="work">
-			<a href="inner.html">
-				<img src="img/work2.jpg" class="media" alt=""/>
-				<div class="caption">
-					<div class="work_title">
-						<h1>culpa qui officia deserunt mollit</h1>
-					</div>
-				</div>
-			</a>
-		</div>
-	</section><!-- end main -->
+		</div>				
+	</section>
 	
 </body>
 </html>
