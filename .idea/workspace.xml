@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c53e4ffd-817c-4a82-a17f-1b0412bd331f" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/amazeui.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flowjs.html" afterPath="$PROJECT_DIR$/flowjs.html" />
     </list>
@@ -60,8 +61,24 @@
         <entry file="file://$PROJECT_DIR$/flowjs.html">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.20642202">
-              <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+              <caret line="6" column="31" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="amazeui.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/amazeui.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="255214" selection-start-line="0" selection-start-column="255214" selection-end-line="0" selection-end-column="255214" />
+              <folding>
+                <element signature="e#41987#42310#1" expanded="true" />
+                <element signature="e#171285#172400#2" expanded="true" />
+                <element signature="e#173179#175302#2" expanded="true" />
+                <element signature="e#175449#177656#2" expanded="true" />
+                <element signature="e#177808#178199#2" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -92,6 +109,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -103,6 +121,7 @@
       <list>
         <option value="$PROJECT_DIR$/test/test.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/css/amazeui.css" />
         <option value="$PROJECT_DIR$/flowjs.html" />
       </list>
     </option>
@@ -174,6 +193,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="channg.github.io" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="channg-github.io" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -188,6 +221,7 @@
     <property name="FullScreen" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -402,10 +436,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/css/amazeui.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="255214" selection-start-line="0" selection-start-column="255214" selection-end-line="0" selection-end-column="255214" />
+          <folding>
+            <element signature="e#41987#42310#1" expanded="true" />
+            <element signature="e#171285#172400#2" expanded="true" />
+            <element signature="e#173179#175302#2" expanded="true" />
+            <element signature="e#175449#177656#2" expanded="true" />
+            <element signature="e#177808#178199#2" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/flowjs.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.20642202">
-          <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+          <caret line="6" column="31" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
           <folding />
         </state>
       </provider>
