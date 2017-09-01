@@ -1,231 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>薛智文的主页</title>
-	<meta charset="utf-8">
-	<meta name="author" content="pixelhint.com">
-	<meta name="description" content="Magnetic is a stunning responsive HTML5/CSS3 photography/portfolio website template"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
-	<link rel="stylesheet" type="text/css" href="css/reset.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-	
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
-    <!-- Place this tag in your head or just before your close body tag. -->
-    <link rel="stylesheet" type="text/css" href="css/new.css">
-	<script async defer src="https://buttons.github.io/buttons.js"></script>
+  <meta charset="UTF-8">
+  <title>js live debug -- flowjs</title>
+  <link href="https://cdn.bootcss.com/codemirror/5.29.0/codemirror.css" rel="stylesheet">
+  <link href="./css/amazeui.css" type="text/css"/>
+  <style>
+    html,body,#view{
+      height: 100%;
+      margin: 0px;
+      overflow: hidden;
+    }
+    body{
+      font-size: 13px;
+      font-family: monospace;
+    }
+    .p{
+      margin: 0;
+      position: relative;
+    }
+    pre{
+      font-size: 13px;
+      padding: 0px;
+      border: 0;
+      background-color: white;
+    }
+    .pre{
+      margin: 0;
+      width: 100%;
+      height: 80%;
+      position: absolute;
+      top:50%;
+      transform: translateY(-50%);
+      font-family: monospace;
+      overflow: scroll;
+      overflow-x: hidden;
+    }
+    .code{
+      height: 100%;
+
+      padding: 0 0px;
+      top:0;
+      left:0;
+      width: 80%;
+      display: block;
+      margin: 0 auto;
+    }
+    .run{
+      width: 70px;
+      height:70px;
+      background-color: #00cc66;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      float: left;
+    }
+    .edit{
+      width: 70px;
+      height:70px;
+      background-color: #e06c75;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      float: left;
+    }
+    #doc-oc-demo2{
+      position: absolute;
+      left:0;
+      top:0;
+    }
+    .letf{
+      position: absolute;
+      left: 0;
+      transform: translateX(-150%);
+    }
+    .code-div{
+      cursor: pointer;
+      position: relative;
+    }
+    #flowCode{
+    }
+    .showdown:before{
+      content:" ";
+      background-color:rgba(0,0,0,0.3);
+      font-weight:bold;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: inline-block;
+      border-radius: 6px;
+    }
+    .p:hover{
+      background-color: #cccccc;
+    }
+    #set-width{
+      width: 40%;
+    }
+    .panel-none-back{
+      background-color: inherit;
+    }
+    .flex-div{
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+    .CodeMirror{
+      width: 100%;
+      height: 100%;
+      background-color: #f8f8f8;
+      border: 1px solid #dedede;
+    }
+    .CodeMirror-linenumbers,.CodeMirror-gutters{
+      background-color: white;
+      border: 0;
+    }
+    #codemirror-pre{
+      font-size: inherit;
+      width: 80%;
+      margin:  0 auto;
+      right: 50%;
+      transform: translate(50%,-50%);
+      bottom:50%;
+
+    }
+    .code-div .hljs{
+      padding: 0;
+    }
+
+  </style>
+  <link rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
 </head>
 <body>
+<section id="view">
+  <div class="pre" id="codemirror-pre" v-show="codeEditShow"></div><pre class="pre" v-show="!codeEditShow"><code id="flowCode" class="javascript code showcode" ><div @click="toAnyStep(item)" class="code-div" v-for="item in showData"><span  class="letf am-badge am-badge-success am-round" v-show="isShowStepText(item)" v-text="steps"></span><p :class="checkIsThisLine(item) +' p'"  v-text="item.code==''?' ':item.code"></p></div></code></pre>
+  <div class="run" data-am-offcanvas="{target: '#doc-oc-demo2', effect: 'push'}">run()</div>
+  <div class="edit" >edit()</div>
 
-	<header>
-		<div class="logo">
-			<img  src="img/zhiwenxue.png" width="185px">
-		</div><!-- end logo -->
-		<div class="head_img" onclick="location.href='https://github.com/channg'"><img src="https://avatars3.githubusercontent.com/u/16931846?v=3&s=460" width="100%" height="100%"/></div>
-		<div id="menu_icon"></div>
-		<nav>
-			<ul>
-				<li><a href="index.html" class="selected">javascript</a></li>
-				<li><a href="java.html">java</a></li>
-				<li><a href="python.htom">python</a></li>
-				<li><a href="nodejs.html">nodejs</a></li>
-				<li><a href="me.html">关于我</a></li>
-			</ul>
-		</nav><!-- end navigation menu -->
+  <!-- 侧边栏内容 -->
+  <div id="doc-oc-demo2" class="am-offcanvas">
+    <div class="am-offcanvas-bar" id="set-width">
+      <div class="am-offcanvas-content">
+        <div style="text-align: right">
+          <span  class="am-badge am-badge-success am-round" v-text="steps"></span>
+          <button type="button" class="am-btn am-btn-success" v-on:click="nextStep">next step</button>
+          <button type="button" class="am-btn am-btn-warning" v-on:click="backStep">back step</button>
+        </div>
+        <div style="margin-top: 20px;">
+          <span class="am-badge am-badge-primary">current data</span>
+        </div>
+        <ul id="collapase-nav-1">
+          <li  class="am-panel panel-none-back" v-for="code in linePopOutherStep" >
+            <span class="am-badge am-badge-secondary am-round" v-text="typeof code.word"></span><span style="margin-left: 10px;font-weight: bold;color: #eeeeee;" v-text="code.name"></span> <pre class="hightlight"><code class="javascript" v-text="trans(code.word)"></code></pre>
+          </li>
+        </ul>
+        <div style="margin-top: 20px;">
+          <span class="am-badge am-badge-success">previous data</span>
+        </div>
+        <ul id="collapase-nav-2">
+          <li  class="am-panel panel-none-back" v-for="code in linePopBeforeStep" >
+            <span class="am-badge am-badge-secondary am-round" v-text="typeof code.word"></span><span style="margin-left: 10px;font-weight: bold;color: #eeeeee;" v-text="code.name"></span> <pre class="hightlight"><code class="javascript" v-text="trans(code.word)"></code></pre>
+          </li>
+        </ul>
 
-		<div class="footer clearfix">
-			<div class="rights">
-				<!-- Place this tag where you want the button to render. -->
-				<a class="github-button" href="https://github.com/channg" data-style="mega" data-count-href="/channg/followers" data-count-api="/users/channg#followers" data-count-aria-label="# followers on GitHub" aria-label="Follow @channg on GitHub">Follow @zhiwenxue</a>
-			</div><!-- end rights -->
-		</div ><!-- end footer -->
-	</header><!-- end header -->
-
-	<section class="main clearfix">
-		<!--jquery  -->
-		<div class="work">
-			<a href="http://jquery.com/">
-				<div class="fill_div">
-					<div class="inner_img_div" style="background-color: #0768AD">
-						<img class="home_img" src="img/homeimg/jquery-selectors.jpg" style="height: 50%;margin-top: 25%">
-					</div>
-				</div>
-				<div class="caption">
-					<div class="work_title">
-						<h1>
-							<p>jQuery 是一个 JavaScript 库。</p>
-							<p>jQuery 极大地简化了 JavaScript 编程。</p>
-							<p>jQuery 很容易学习。</p>
-						</h1>
-					</div>
-				</div>
-			</a>
-		</div>
-		<!-- bootstrap -->
-		<div class="work">
-			<a href="http://getbootstrap.com/">
-				<div class="fill_div">
-					<div class="inner_img_div" style="background-color: #453166">
-						<img class="home_img" src="img/homeimg/bootstrap.png" style="height: 50%;margin-top: 25%">
-					</div>
-				</div>
-				<div class="caption">
-					<div class="work_title">
-						<h1>Bootstrap，来自 Twitter，是目前最受欢迎的前端框架。Bootstrap 是基于 HTML、CSS、JAVASCRIPT 的，它简洁灵活，使得 Web 开发更加快捷。</h1>
-					</div>
-				</div>
-			</a>
-		</div>
-		<!-- anjularjs -->
-		<div class="work">
-			<a href="https://angularjs.org/">
-				<div class="fill_div">
-					<div class="inner_img_div" style="background-color: #E1E1E1">
-						<img class="home_img" src="img/homeimg/angularjs.png" style="height: 50%;margin-top: 25%">
-					</div>
-				</div>
-				<div class="caption">
-					<div class="work_title">
-						<h1>AngularJS 通过新的属性和表达式扩展了 HTML。
-AngularJS 可以构建一个单一页面应用程序（SPAs：Single Page Applications）。
-AngularJS 学习起来非常简单。</h1>
-					</div>
-				</div>
-			</a>
-		</div>
-		<!-- vuejs -->
-		<div class="work">
-			<a href="http://cn.vuejs.org/">
-				<div class="fill_div">
-					<div class="inner_img_div" style="background-color:#ffffff">
-						<img class="home_img" src="img/homeimg/vuejs.png" style="height: 50%;margin-top: 25%">
-					</div>
-				</div>
-				<div class="caption">
-					<div class="work_title">
-						<h1>Vue.js 是一个轻巧、高性能、可组件化的MVVM库，同时拥有非常容易上手的API，让编写动态的UI界面变得轻松简单。</h1>
-					</div>
-				</div>
-			</a>
-		</div>
-		
-		<div class="work">
-			<a href="http://zeptojs.com/">
-				<div class="fill_div">
-					<div class="inner_img_div" style="background-color:#ffffff">
-						<img class="home_img" src="img/homeimg/zepto.png" style="margin-top: 30%">
-					</div>
-				</div>
-				<div class="caption">
-					<div class="work_title">
-						<h1>Zepto是一个轻量级的针对现代高级浏览器的JavaScript库， 它与jquery有着类似的api。 如果你会用jquery，那么你也会用zepto。</h1>
-					</div>
-				</div>
-			</a>
-		</div>
-		<div class="work">
-			<a href="http://idangero.us/swiper/#.V7V-E0196Uk">
-				<div class="fill_div">
-					<div class="inner_img_div" style="background-color:#267FE4">
-						<img class="home_img" src="img/homeimg/swiper.png" style="height: 50%;margin-top: 25%">
-					</div>
-				</div>
-				<div class="caption">
-					<div class="work_title">
-						<h1>Swiper是纯javascript打造的滑动特效插件，面向手机、平板电脑等移动终端。
-
-Swiper能实现触屏焦点图、触屏Tab切换、触屏多图切换等常用效果。</h1>
-					</div>
-				</div>
-			</a>
-		</div>
-		<div class="work">
-			<a href="http://echarts.baidu.com/">
-				<div class="fill_div">
-					<div class="inner_img_div" style="background-color:#ffffff">
-						<img class="home_img" src="img/homeimg/echarts.png" style="width:100%">
-					</div>
-				</div>
-				<div class="caption">
-					<div class="work_title">
-						<h1>　ECharts，缩写来自Enterprise Charts，商业级数据图表  来自baidu</h1>
-					</div>
-				</div>
-			</a>
-		</div>
-		<div class="work">
-			<a href="http://threejs.org/">
-				<div class="fill_div">
-					<div class="inner_img_div" style="background-color:#59BDCE">
-						<img class="home_img" src="img/homeimg/three.png" style="margin-top: 20%">
-					</div>
-				</div>
-				<div class="caption">
-					<div class="work_title">
-						<h1>three.js是JavaScript编写的WebGL第三方库。提供了非常多的3D显示功能。</h1>
-					</div>
-				</div>
-			</a>
-		</div>	
-		<div class="work">
-			<a href="http://coffeescript.org/">
-				<div class="fill_div">
-					<div class="inner_img_div" style="background-color:#524743">
-						<img class="home_img" src="img/homeimg/coffee.jpg" style="margin-top: 25%;height: 50%">
-					</div>
-				</div>
-				<div class="caption">
-					<div class="work_title">
-						<h1>CoffeeScript 是一门编译到 JavaScript 的小巧语言. 在 Java 般笨拙的外表下, JavaScript 其实有着一颗华丽的心脏. CoffeeScript 尝试用简洁的方式展示 JavaScript 优秀的部分.</h1>
-					</div>
-				</div>
-			</a>
-		</div>
-		<div class="work">
-			<a href="http://lesscss.org/">
-				<div class="fill_div">
-					<div class="inner_img_div" style="background-color:#1D365E">
-						<img class="home_img" src="img/homeimg/less.jpg" style="margin-top: 35%;">
-					</div>
-				</div>
-				<div class="caption">
-					<div class="work_title">
-						<h1>Less 是一门 CSS 预处理语言，它扩展了 CSS 语言，增加了变量、Mixin、函数等特性，使 CSS 更易维护和扩展。
-
-Less 可以运行在 Node 或浏览器端。</h1>
-					</div>
-				</div>
-			</a>
-		</div>				
-		<div class="work">
-			<a href="https://www.typescriptlang.org/">
-				<div class="fill_div">
-					<div class="inner_img_div" style="background-color:#EFEFF1">
-						<img class="home_img" src="img/homeimg/typescript-cover-image.jpg" style="margin-top: 35%;">
-					</div>
-				</div>
-				<div class="caption">
-					<div class="work_title">
-						<h1>TypeScript是一种由微软开发的自由和开源的编程语言。它是JavaScript的一个超集，而且本质上向这个语言添加了可选的静态类型和基于类的面向对象编程。</h1>
-					</div>
-				</div>
-			</a>
-		</div>
-		<div class="work">
-			<a href="http://sass-lang.com/">
-				<div class="fill_div">
-					<div class="inner_img_div" style="background-color:#ffffff">
-						<img class="home_img" src="img/homeimg/marinamilette_sass.png" style="">
-					</div>
-				</div>
-				<div class="caption">
-					<div class="work_title">
-						<h1>Sass 扩展了 CSS3，增加了规则、变量、混入、选择器、继承等等特性。Sass 生成良好格式化的 CSS 代码，易于组织和维护。SASS是对CSS3（层叠样式表）的语法的一种扩充，它可以使用巢状、混入、选择子继承等功能，可以更有效有弹性的写出Stylesheet。</h1>
-					</div>
-				</div>
-			</a>
-		</div>				
-	</section>
-	
+      </div>
+    </div>
+  </div>
+  <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-1">
+    <div class="am-modal-dialog">
+      <div class="am-modal-hd">The line code is called <span style="color: #00cc66">{{toIndexModel.length}}</span> times, please select the jump position
+        <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+      </div>
+      <div class="am-modal-bd">
+        <div v-for="code in toIndexModel" class="flex-div" @click="goAnyStep(code)">
+          <div style="margin-right: 10px;">
+            <span class=" am-badge am-badge-success am-round" v-text="code.stepindex"></span>
+            <span class="am-badge am-badge-secondary am-round" v-text="typeof code.word"></span><span style="margin-left: 10px" v-text="code.name"></span>
+          </div>
+          <pre class="hightlight" style="flex-grow:1"><code class="javascript" v-text="trans(code.word)"></code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script src="./js/app.bundle.js"></script>
+<!-- Place this tag where you want the button to render. -->
+<a class="github-button" href="https://github.com/channg/flowjs" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star channg/flowjs on GitHub">Star</a>
+<!-- Place this tag in your head or just before your close body tag. -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
 </html>
