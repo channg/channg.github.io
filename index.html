@@ -5,6 +5,7 @@
   <title>js live debug -- flowjs</title>
   <link href="https://cdn.bootcss.com/codemirror/5.29.0/codemirror.css" rel="stylesheet">
   <link href="./css/amazeui.css" type="text/css"/>
+  <link href="https://cdn.bootcss.com/intro.js/2.7.0/introjs.min.css" rel="stylesheet">
   <style>
     html,body,#view{
       height: 100%;
@@ -139,7 +140,7 @@
 <body>
 <section id="view">
   <div class="pre" id="codemirror-pre" v-show="codeEditShow"></div><pre class="pre" v-show="!codeEditShow"><code id="flowCode" class="javascript code showcode" ><div @click="toAnyStep(item)" class="code-div" v-for="item in showData"><span  class="letf am-badge am-badge-success am-round" v-show="isShowStepText(item)" v-text="steps"></span><p :class="checkIsThisLine(item) +' p'"  v-text="item.code==''?' ':item.code"></p></div></code></pre>
-  <div class="run" data-am-offcanvas="{target: '#doc-oc-demo2', effect: 'push'}">run()</div>
+  <div class="run" data-step="1" data-intro='first, you can run the code' data-am-offcanvas="{target: '#doc-oc-demo2', effect: 'push'}" data-intro='Hello step one!'>run()</div>
   <div class="edit" >edit()</div>
 
   <!-- 侧边栏内容 -->
